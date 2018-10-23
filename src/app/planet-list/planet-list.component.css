@@ -1,0 +1,16 @@
+.planet-card:hover, .mat-raised-button:hover{
+  background: #2f3030;
+  cursor: pointer;
+}
+.planet-card{
+  transition-duration: 500ms;
+}
+.search-bar{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.search-field{
+  width: 100%;
+}

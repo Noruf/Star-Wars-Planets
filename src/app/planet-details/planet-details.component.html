@@ -1,0 +1,95 @@
+<button mat-raised-button class="mat-raised-button" (click)="goBack()">Go Back</button>
+<h1 class="pb-2 mt-4 mb-2 planet-name">{{planet.name}}</h1>
+<mat-divider></mat-divider>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Orbital characteristics
+      </mat-panel-title>
+      <mat-panel-description>
+        Rotation and orbital periods
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-card>Orbital Period: {{planet.orbital_period}} {{planet.orbital_period!='unknown'?'days':''}}
+    </mat-card>
+    <mat-card>Rotation Period: {{planet.rotation_period}} {{planet.rotation_period!='unknown'?'hours':''}}</mat-card>
+
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Physical characteristics
+      </mat-panel-title>
+      <mat-panel-description>
+        Gravity, diameter, water
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-card>Diameter: {{planet.diameter}} {{planet.diameter!='unknown'?'kilometres':''}}</mat-card>
+    <mat-card>Water surface area: {{planet.surface_water}}{{planet.surface_water!='unknown'?'% of the planet surface':''}}</mat-card>
+    <mat-card>Gravity [G]: {{planet.gravity}}</mat-card>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Climate
+      </mat-panel-title>
+      <mat-panel-description>
+        Climate of the planet
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-chip-list>
+      <div *ngFor="let climate of climates" class="climate-list">
+        <mat-chip selectable="false">{{climate | titlecase}}</mat-chip>
+      </div>
+    </mat-chip-list>
+
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Terrain
+      </mat-panel-title>
+      <mat-panel-description>
+        Terrain of the planet
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-chip-list>
+      <div *ngFor="let terrain of terrains" class="terrain-list">
+        <mat-chip selectable="false">{{terrain | titlecase}}</mat-chip>
+      </div>
+    </mat-chip-list>
+
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        People
+      </mat-panel-title>
+      <mat-panel-description>
+        Inhabitats of the planet
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-card>Population: {{planet.population}}</mat-card>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Films
+      </mat-panel-title>
+      <mat-panel-description>
+        Films which this planet appeared in
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div *ngFor="let film of films">
+      <mat-card>{{film}}</mat-card>
+    </div>
+  </mat-expansion-panel>
+
+</mat-accordion>

@@ -1,0 +1,29 @@
+<form #searchForm="ngForm" (ngSubmit)="search()">
+  <div class="search-bar">
+
+    <mat-form-field class="search-field">
+      <input matInput style="color:purple;" placeholder="Search for planet" type="text" name="planetName" [(ngModel)]="searchTerm">
+
+    </mat-form-field>
+    <button *ngIf="isSearch" type="button" (click)="searchReset()" class="mat-raised-button">X</button>
+    <button type="submit" class="mat-raised-button">Search</button>
+
+  </div>
+</form>
+<mat-paginator *ngIf="!isSearch" [length]="page.length" [pageSize]="page.pageSize" [pageIndex]="page.pageIndex" [pageSizeOptions]="[5, 10, 25, 100]" (page)="pageEvent($event)">>
+</mat-paginator>
+<div *ngFor="let planet of planets">
+  <mat-card class="planet-card mb-1 mt-1" (click)="onSelect(planet)">
+    <mat-card-header>
+      <mat-card-title>{{planet.name}}</mat-card-title>
+      <mat-card-subtitle>Population: {{planet.population}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        Number of films: {{planet.films.length}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<mat-spinner class="mt-5" style="margin:auto;" *ngIf="loading"></mat-spinner>
